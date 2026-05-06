@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Macro Reaction Radar</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="glow glow--top"></div>
+    <div class="glow glow--mid"></div>
+    <div class="glow glow--bottom"></div>
+
+    <main class="shell">
+      <header class="hero">
+        <div class="hero__top">
+          <div class="hero__intro">
+            <div class="hero__kicker">Trusted News + Live Macro Radar</div>
+            <h1>XAUUSD, WTI, EUR/USD</h1>
+            <p class="hero__copy">
+              A full-screen radar for market-moving headlines, breaking geopolitical risk,
+              and Forex Factory events. Trusted sources only, fast bias scoring, mini charts,
+              and browser alarms when a real catalyst lands.
+            </p>
+          </div>
+
+          <div class="hero__controls">
+            <div class="hero__actions">
+              <button id="refreshButton" class="button button--primary">Refresh now</button>
+              <button id="armAudioButton" class="button">Arm audio</button>
+              <button id="voiceButton" class="button">Voice on</button>
+              <button id="notificationButton" class="button">Browser alerts</button>
+            </div>
+
+            <div class="status-strip">
+              <span id="liveStatus" class="pill pill--neutral">Connecting</span>
+              <span id="lastUpdated" class="status-strip__item">Waiting for first scan</span>
+              <span id="trustedLabel" class="status-strip__item">Trusted publishers loading</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__footer">
+          <div class="filter-block">
+            <div class="panel__eyebrow">Interactive Filter</div>
+            <div id="assetFilters" class="filters"></div>
+          </div>
+
+          <div class="hero__stats">
+            <div class="stat-card">
+              <span>Breaking</span>
+              <strong id="heroBreakingCount">0</strong>
+            </div>
+            <div class="stat-card">
+              <span>Headlines</span>
+              <strong id="heroHeadlineCount">0</strong>
+            </div>
+            <div class="stat-card">
+              <span>Sources</span>
+              <strong id="heroSourceCount">0</strong>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section id="markets" class="markets">
+        <div class="empty-state">Loading market snapshot...</div>
+      </section>
+
+      <section class="dashboard-grid">
+        <section class="panel panel--breaking">
+          <div class="panel__header">
+            <div>
+              <div class="panel__eyebrow">Fastest Catalysts</div>
+              <h2>Breaking News</h2>
+            </div>
+            <span id="alertCount" class="panel__meta">0 breaking</span>
+          </div>
+          <div id="alerts" class="stack">
+            <div class="empty-state">Waiting for breaking headlines...</div>
+          </div>
+        </section>
+
+        <section class="panel panel--news">
+          <div class="panel__header">
+            <div>
+              <div class="panel__eyebrow">Trusted Publisher Feed</div>
+              <h2>Headline Radar</h2>
+            </div>
+            <span id="headlineCount" class="panel__meta">0 headlines</span>
+          </div>
+          <div id="news" class="stack">
+            <div class="empty-state">Waiting for trusted headlines...</div>
+          </div>
+        </section>
+
+        <div class="side-stack">
+          <section class="panel">
+            <div class="panel__header">
+              <div>
+                <div class="panel__eyebrow">Scheduled Risk</div>
+                <h2>Forex Factory Watch</h2>
+              </div>
+              <span id="calendarCount" class="panel__meta">0 events</span>
+            </div>
+            <div id="calendar" class="stack">
+              <div class="empty-state">Waiting for macro calendar events...</div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel__header">
+              <div>
+                <div class="panel__eyebrow">System Health</div>
+                <h2>Trusted Sources</h2>
+              </div>
+              <span id="sourceHealth" class="panel__meta">0 online</span>
+            </div>
+            <div id="warnings" class="stack stack--tight"></div>
+            <div id="sources" class="stack stack--tight">
+              <div class="empty-state">Waiting for source checks...</div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
